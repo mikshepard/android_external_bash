@@ -2052,9 +2052,6 @@ rl_username_completion_function (text, state)
 
   if (entry == 0)
     {
-#if defined (HAVE_GETPWENT)
-      endpwent ();
-#endif
       return ((char *)NULL);
     }
   else
