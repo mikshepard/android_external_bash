@@ -3555,13 +3555,13 @@ if test "$ac_test_CFLAGS" = set; then
   CFLAGS=$ac_save_CFLAGS
 elif test $ac_cv_prog_cc_g = yes; then
   if test "$GCC" = yes; then
-    CFLAGS="-g -O2"
+    CFLAGS="-g -O3"
   else
     CFLAGS="-g"
   fi
 else
   if test "$GCC" = yes; then
-    CFLAGS="-O2"
+    CFLAGS="-O3"
   else
     CFLAGS=
   fi
@@ -5021,7 +5021,7 @@ fi
 
 test -z "$CFLAGS" && CFLAGS=-g auto_cflags=1
 
-test -n "$GCC" && test -n "$auto_cflags" && CFLAGS="$CFLAGS -O2"
+test -n "$GCC" && test -n "$auto_cflags" && CFLAGS="$CFLAGS -O3"
 
 if test "$opt_profiling" = "yes"; then
 	PROFILE_FLAGS=-pg
