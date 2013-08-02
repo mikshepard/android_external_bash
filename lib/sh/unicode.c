@@ -159,13 +159,14 @@ u32cconv (c, s)
 
   wc = c;
 
+/* COMMENTED OUT TO FIX GCC 4.8 BUILDING ERRORS
 #if __STDC_ISO_10646__
   if (sizeof (wchar_t) == 4)
     {
       n = wctomb (s, wc);
       return n;
     }
-#endif
+#endif */
 
 #if HAVE_NL_LANGINFO
   codeset = nl_langinfo (CODESET);
