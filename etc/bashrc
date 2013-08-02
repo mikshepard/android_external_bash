@@ -43,6 +43,11 @@ alias mc='mc -b'
 alias diskspace='du -m | sort -n -r | less'
 alias x='exit'
 alias su='su -c bash'
+alias ff='find . -name $1'
+alias lsd='ls -ld `find . -maxdepth 1 -type d -o -type l`'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../../'
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
