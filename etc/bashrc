@@ -52,6 +52,13 @@ alias ....='cd ../../../'
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 
+### Define Colors
+BOLD="\033[1m"
+NORMAL="\033[0m"
+WHITE="\e[0m"
+RED="\e[1;31m"
+GREEN="\e[1;32m"
+
 hour="`date +%H`"
 case "${hour}" in
 0[0-4])
