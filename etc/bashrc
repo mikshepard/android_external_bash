@@ -29,13 +29,6 @@ use_color=false
 HOME=/sdcard
 TERM=linux
 
-# enable colorful terminal
-if [[ ${EUID} == 0 ]] ; then
-	PS1='\[\033[01;31m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
-else
-	PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] '
-fi
-
 # Set up a ton of aliases to cover toolbox with the nice busybox
 # equivalents of its commands
 for i in cat chmod chown df insmod ln lsmod mkdir mount mv rm rmdir rmmod umount; do
@@ -49,3 +42,47 @@ alias sysrw='mount -o remount,rw /system'
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
 
+hour="`date +%H`"
+case "${hour}" in
+0[0-4])
+echo "
+###################
+#   Late Night?   #
+###################
+"
+;;
+0[4-9]|10)
+echo "
+##################
+#  Good Morning  #
+##################
+"
+;;
+1[1-6])
+echo "
+####################
+#  Good Afternoon  #
+####################
+"
+;;
+*)
+echo "
+##################
+#  Good Evening  #
+##################
+"
+;;
+esac
+echo ""
+echo -e "${BOLD}Kernel:${NORMAL} `uname -r`"
+echo -e "${BOLD}Uptime:${NORMAL} `uptime  | sed 's/up time: //'`"
+echo -e "${BOLD}Time:${NORMAL} `date`"
+if [[ ${EUID} == 0 ]] ; then
+echo -e "$RED""You are logged in as root"
+echo ""
+PS1="$RED\w:# $NORMAL"
+else 
+echo -e "$GREEN""You are logged in as user"
+echo ""
+PS1="$GREEN\w:\$ $NORMAL"
+fi
