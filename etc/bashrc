@@ -97,9 +97,9 @@ echo -e "${BOLD}Time:${NORMAL} `date`"
 if [[ ${EUID} == 0 ]] ; then
 echo -e "$RED""You are logged in as root"
 echo ""
-PS1="$RED\w:# $NORMAL"
+PS1="\[$RED\w:#\] \[$NORMAL\]"
 else 
 echo -e "$GREEN""You are logged in as user"
 echo ""
-PS1="$GREEN\w:\$ $NORMAL"
+PS1="\[$GREEN\w:\$\] \[$NORMAL\]"
 fi
