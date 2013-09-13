@@ -27,7 +27,7 @@ use_color=false
 
 # set some environment variables
 HOME=/sdcard
-TERM=vt100
+TERM=xterm
 export TERMINFO=/system/etc/terminfo
 
 # Set up a ton of aliases to cover toolbox with the nice busybox
@@ -48,6 +48,7 @@ alias lsd='ls -ld `find . -maxdepth 1 -type d -o -type l`'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../../'
+alias nano='nano -c'
 
 # Try to keep environment pollution down, EPA loves us.
 unset use_color safe_term match_lhs
